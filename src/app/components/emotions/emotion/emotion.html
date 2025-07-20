@@ -1,0 +1,9 @@
+{{ emotion()!.name }}
+<input
+  tuiSlider
+  type="range"
+  [max]="10"
+  [(ngModel)]="value"
+  [disabled]="disabled"
+  (blur)="onBlur()"
+/>

@@ -1,0 +1,72 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  input,
+  InputSignal,
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
+import { IEmotion } from '../interfaces';
+
+@Component({
+  selector: 'app-emotion',
+  imports: [FormsModule],
+  templateUrl: './emotion.html',
+  styleUrl: './emotion.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => Emotion),
+      multi: true,
+    },
+  ],
+})
+export class Emotion implements ControlValueAccessor {
+  public emotion: InputSignal<IEmotion> = input({
+    key: '',
+    name: '...',
+    type: 'other',
+  } as IEmotion);
+  private innerValue: any = '';
+  public disabled: boolean = false;
+
+  private onTouchedCallback: () => void = () => {};
+  private onChangeCallback: (_: any) => void = () => {};
+
+  get value(): any {
+    return this.innerValue;
+  }
+
+  set value(v: any) {
+    if (v !== this.innerValue) {
+      this.innerValue = v;
+      this.onChangeCallback(v);
+    }
+  }
+
+  onBlur() {
+    this.onTouchedCallback();
+  }
+  writeValue(value: any) {
+    if (value !== this.innerValue) {
+      this.innerValue = value;
+    }
+  }
+
+  registerOnChange(fn: any) {
+    this.onChangeCallback = fn;
+  }
+
+  registerOnTouched(fn: any) {
+    this.onTouchedCallback = fn;
+  }
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
+  }
+}
