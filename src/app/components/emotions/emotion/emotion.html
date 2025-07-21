@@ -1,4 +1,5 @@
-{{ emotion()!.name }}
+<div  [class]="emotion().type">
+<div class="label">{{ emotion()!.name }}</div>
 <input
   tuiSlider
   type="range"
@@ -7,3 +8,4 @@
   [disabled]="disabled"
   (blur)="onBlur()"
 />
+</div>

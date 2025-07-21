@@ -6,7 +6,7 @@ import { Emotions } from './components/emotions/emotions';
   selector: 'app-root',
   imports: [TuiRoot, Emotions],
   templateUrl: './app.html',
-  styleUrls: ['./app.scss', './app.less'],
+  styleUrl: './app.scss',
   standalone: true,
 })
 export class App {}

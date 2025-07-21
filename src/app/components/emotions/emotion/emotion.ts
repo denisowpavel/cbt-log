@@ -11,10 +11,11 @@ import {
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 import { IEmotion } from '../interfaces';
+import {TuiSliderComponent} from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-emotion',
-  imports: [FormsModule],
+  imports: [FormsModule, TuiSliderComponent],
   templateUrl: './emotion.html',
   styleUrl: './emotion.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

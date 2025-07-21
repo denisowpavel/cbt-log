@@ -1,8 +1,8 @@
-Эмоции
+<h2>Эмоции</h2>
 
 
 @if (emotionsFormGroup) {
-  <form [formGroup]="emotionsFormGroup">
+  <form [formGroup]="emotionsFormGroup" class="list">
     @for (item of list; track item) {
       <app-emotion [emotion]="item" [formControlName]="item.key" />
     }
