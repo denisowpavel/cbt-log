@@ -37,7 +37,9 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
               "src/styles.scss"
-            ]
+            ],
+            "outputPath": "dist/cbt-log",
+            "index": "src/index.html"
           },
           "configurations": {
             "production": {
@@ -94,6 +96,9 @@
             ],
             "styles": ["src/styles.scss"]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
