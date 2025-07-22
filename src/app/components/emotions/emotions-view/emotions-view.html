@@ -1,0 +1,7 @@
+@for (item of list; track item) {
+  @if (values()[item.key]) {
+    <span [class]="item.type">
+      {{ item.name }} ({{ values()[item.key] }})
+    </span>
+  }
+}

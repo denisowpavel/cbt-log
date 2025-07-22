@@ -1,12 +1,12 @@
 import {
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   forwardRef,
   input,
   InputSignal,
 } from '@angular/core';
 import {
-  ControlValueAccessor,
+  ControlValueAccessor, FormBuilder,
   FormsModule,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
@@ -29,22 +29,23 @@ import {TuiSliderComponent} from '@taiga-ui/kit';
   ],
 })
 export class Emotion implements ControlValueAccessor {
+  constructor(private cdr: ChangeDetectorRef) {}
   public emotion: InputSignal<IEmotion> = input({
     key: '',
     name: '...',
     type: 'other',
-  } as IEmotion);
-  private innerValue: any = '';
+   } as IEmotion);
+  private innerValue: number = 0;
   public disabled: boolean = false;
 
   private onTouchedCallback: () => void = () => {};
-  private onChangeCallback: (_: any) => void = () => {};
+  private onChangeCallback: (_: number) => void = () => {};
 
-  get value(): any {
+  get value(): number {
     return this.innerValue;
   }
 
-  set value(v: any) {
+  set value(v: number) {
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
@@ -54,10 +55,11 @@ export class Emotion implements ControlValueAccessor {
   onBlur() {
     this.onTouchedCallback();
   }
-  writeValue(value: any) {
+  writeValue(value: number) {
     if (value !== this.innerValue) {
       this.innerValue = value;
     }
+    this.cdr.detectChanges();
   }
 
   registerOnChange(fn: any) {

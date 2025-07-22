@@ -1,4 +1,6 @@
 <tui-root>
-
-  <app-emotions></app-emotions>
+  <app-emotions [(ngModel)]="v"></app-emotions>
+  <app-emotions-view [values]="v"></app-emotions-view>
+  <br>
+  <button tuiButton  (click)="v={ anxiety: 1 }" type="button">*</button>
 </tui-root>

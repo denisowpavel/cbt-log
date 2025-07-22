@@ -16,15 +16,4 @@
       --emotion-color: #c0afe4;
     }
   }
-  .list {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    gap: 10px;
-  }
-
-  .list:after {
-    content: "";
-    display: table;
-  }
 }

@@ -1,0 +1,6 @@
+:host {
+  & > span {
+    font-weight: bold;
+    color: var(--emotion-color);
+  }
+}

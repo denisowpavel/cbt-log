@@ -1,6 +1,6 @@
 import {IEmotion} from './components/emotions/interfaces';
 
-export const EmotionsList: IEmotion[] = [
+export const EmotionsListData: IEmotion[] = [
     { key: 'anxiety', name: 'Тревога', type: 'anxious' },
     { key: 'fear', name: 'Страх', type: 'anxious' },
     { key: 'fright', name: 'Испуг', type: 'anxious' },
