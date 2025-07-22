@@ -1,16 +1,30 @@
-:host{
+:host {
+  ::ng-deep {
+    & *.anxious {
+      --emotion-color: #92cee4;
+    }
 
-.list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  gap: 10px;
-}
+    & *.negative {
+      --emotion-color: #cb1c4b;
+    }
 
-.list:after {
-  content: '';
-  display: table;
-}
+    & *.positive {
+      --emotion-color: #18bd5c;
+    }
 
+    & *.other {
+      --emotion-color: #c0afe4;
+    }
+  }
+  .list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 10px;
+  }
 
+  .list:after {
+    content: "";
+    display: table;
+  }
 }

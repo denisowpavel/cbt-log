@@ -3,35 +3,23 @@
   display: inline-block;
   position: relative;
 
-  --tui-background-neutral-2: transparent;
-  & .anxious {
-    --tui-background-accent-1: #92cee4;
-  }
-
-  & .negative {
-    --tui-background-accent-1: #cb1c4b;
-  }
-
-  & .positive {
-    --tui-background-accent-1: #18bd5c;
-  }
-
-  & .other {
-    --tui-background-accent-1: #c0afe4;
+  & > * {
+    --tui-background-neutral-2: transparent;
+    --tui-background-accent-1: var(--emotion-color);
   }
   & > div {
-    border: 2px solid var(--tui-background-accent-1);
+    border: 2px solid var(--emotion-color);
     border-radius: 12px;
     height: 30px;
   }
-  & .label{
+  & .label {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 30px;
     text-align: center;
-    line-height: 38px;
+    line-height: 30px;
     pointer-events: none;
     z-index: 2;
   }
@@ -58,7 +46,7 @@
       width: 0;
       height: 0;
     }
-    &:before{
+    &:before {
       top: -5px;
     }
   }
